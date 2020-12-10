@@ -7,8 +7,7 @@
   README for complete attributions.
 */
 
-#ifndef INCLUDE_MEOG35_STRING_GROUP_H
-#define INCLUDE_MEOG35_STRING_GROUP_H
+#pragma once
 
 #include <MEOG35.h>
 
@@ -40,5 +39,3 @@ private:
     MEOG35* strings_[MAX_STRINGS];
     uint16_t string_offsets_[MAX_STRINGS];
 };
-
-#endif  // INCLUDE_MEOG35_STRING_GROUP_H

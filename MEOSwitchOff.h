@@ -11,8 +11,7 @@
   See README for complete attributions.
 */
 
-#ifndef INCLUDE_G35_PROGRAMS_MEO_SWITCHOFF_H
-#define INCLUDE_G35_PROGRAMS_MEO_SWITCHOFF_H
+#pragma once
 
 #include <MEOLightProgram.h>
 
@@ -22,5 +21,3 @@ public:
     MEOSwitchOff(MEOG35& g35);
     uint32_t Do();
 };
-
-#endif

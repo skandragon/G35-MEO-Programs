@@ -11,8 +11,7 @@
   See README for complete attributions.
 */
 
-#ifndef INCLUDE_G35_PROGRAMS_MEO_COLORPHASING_H
-#define INCLUDE_G35_PROGRAMS_MEO_COLORPHASING_H
+#pragma once
 
 #include <MEOLightProgram.h>
 
@@ -41,5 +40,3 @@ private:
 	bool redOff_;
 	bool bluOff_;
 };
-
-#endif

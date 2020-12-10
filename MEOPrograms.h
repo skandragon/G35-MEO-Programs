@@ -10,8 +10,7 @@
   See README for complete attributions.
 */
 
-#ifndef INCLUDE_G35_MEO_PROGRAMS_H
-#define INCLUDE_G35_MEO_PROGRAMS_H
+#pragma once
 
 #include <MEOSwitchOff.h>
 #include <MEOLightProgram.h>
@@ -32,5 +31,3 @@ public:
 
     virtual MEOLightProgram* CreateProgram(MEOG35& lights, uint8_t program_index, uint8_t pattern);
 };
-
-#endif  // INCLUDE_G35_MEO_PROGRAMS_H

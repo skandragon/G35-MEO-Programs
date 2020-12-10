@@ -8,8 +8,7 @@
   See README for complete attributions.
 */
 
-#ifndef INCLUDE_G35_MEO_PROGRAM_RUNNER_H
-#define INCLUDE_G35_MEO_PROGRAM_RUNNER_H
+#pragma once
 
 #include <MEOLightProgram.h>
 
@@ -185,5 +184,3 @@ private:
     MEOLightProgram* (*program_creator_)(uint8_t program_index, uint8_t pattern);
     MEOLightProgram* program_;
 };
-
-#endif  // INCLUDE_G35_PROGRAM_RUNNER_H

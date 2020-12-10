@@ -8,8 +8,7 @@
   See README for complete attributions.
 */
 
-#ifndef INCLUDE_G35_PROGRAMS_MEO_CHASING_H
-#define INCLUDE_G35_PROGRAMS_MEO_CHASING_H
+#pragma once
 
 #include <MEOLightProgram.h>
 
@@ -54,5 +53,3 @@ private:
     uint16_t wait_;
     uint8_t pattern_;
 };
-
-#endif

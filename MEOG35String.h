@@ -7,8 +7,7 @@
   README for complete attributions.
 */
 
-#ifndef INCLUDE_MEOG35_STRING_H
-#define INCLUDE_MEOG35_STRING_H
+#pragma once
 
 #include <MEOG35.h>
 
@@ -81,5 +80,3 @@ private:
     void zero();
     void end();
 };
-
-#endif  // INCLUDE_MEOG35_STRING_H

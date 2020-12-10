@@ -10,8 +10,7 @@
   See README for complete attributions.
 */
 
-#ifndef INCLUDE_G35_PROGRAMS_MEO_SINE_WAVE_H
-#define INCLUDE_G35_PROGRAMS_MEO_SINE_WAVE_H
+#pragma once
 
 #include <MEOLightProgram.h>
 
@@ -36,5 +35,3 @@ private:
     uint8_t pattern_;
 	bool graduated_;
 };
-
-#endif

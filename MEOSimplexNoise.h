@@ -11,8 +11,7 @@
   See README for complete attributions.
 */
 
-#ifndef INCLUDE_G35_PROGRAMS_MEO_SIMPLEX_NOISE_H
-#define INCLUDE_G35_PROGRAMS_MEO_SIMPLEX_NOISE_H
+#pragma once
 
 #include <MEOLightProgram.h>
 
@@ -38,5 +37,3 @@ private:
     float yoffset_;
     uint8_t pattern_;
 };
-
-#endif

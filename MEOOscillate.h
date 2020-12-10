@@ -10,8 +10,7 @@
   See README for complete attributions.
 */
 
-#ifndef INCLUDE_G35_PROGRAMS_MEO_OSCILLATE_H
-#define INCLUDE_G35_PROGRAMS_MEO_OSCILLATE_H
+#pragma once
 
 #include <MEOLightProgram.h>
 
@@ -30,5 +29,3 @@ private:
 	uint16_t oscillations_;
 	uint16_t step_;
 };
-
-#endif

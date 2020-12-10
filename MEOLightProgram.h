@@ -8,8 +8,7 @@
   See README for complete attributions.
 */
 
-#ifndef INCLUDE_G35_MEO_LIGHT_PROGRAMS_H
-#define INCLUDE_G35_MEO_LIGHT_PROGRAMS_H
+#pragma once
 
 #include <MEOG35.h>
 
@@ -41,5 +40,3 @@ class MEOLightProgramGroup
 public:
     virtual MEOLightProgram* CreateProgram(MEOG35& lights, uint8_t program_index, uint8_t pattern) = 0;
 };
-
-#endif  // INCLUDE_G35_LIGHT_PROGRAMS_H
