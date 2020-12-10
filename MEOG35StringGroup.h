@@ -27,11 +27,11 @@ public:
 
     virtual uint16_t get_light_count();
 
-    virtual void set_color(uint8_t bulb, uint8_t intensity, color_t color);
+    virtual void set_color(uint16_t bulb, uint8_t intensity, color_t color);
     virtual void broadcast_intensity(uint8_t intensity);
 
 protected:
-    virtual uint8_t get_broadcast_bulb();
+    virtual uint16_t get_broadcast_bulb();
 
 private:
     enum { MAX_STRINGS = 16 };

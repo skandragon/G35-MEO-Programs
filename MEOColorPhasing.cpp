@@ -1,6 +1,6 @@
 /*
   G35: An Arduino library for GE Color Effects G-35 holiday lights.
-  Copyright © 2011 The G35 Authors. Use, modification, and distribution are
+  Copyright (c) 2011 The G35 Authors. Use, modification, and distribution are
   subject to the BSD license as described in the accompanying LICENSE file.
 
   By Mike Tsao <http://github.com/sowbug>.
@@ -13,7 +13,9 @@
 
 #include <MEOColorPhasing.h>
 
+#ifndef PI
 #define PI 3.14159265
+#endif
 
 MEOColorPhasing::MEOColorPhasing(MEOG35& g35, uint8_t pattern) : MEOLightProgram(g35, pattern), wait_(0), frequencyR_(0.06), frequencyG_(0.06), frequencyB_(0.06),
     phaseR_(0), phaseG_(2*PI/3), phaseB_(4*PI/3), center_(8), width_(7), fStep_(0), pStep_(0), fForward_(true), turn_(0), pattern_(pattern), grnOff_(false), bluOff_(false), redOff_(false)
@@ -24,9 +26,8 @@ MEOColorPhasing::MEOColorPhasing(MEOG35& g35, uint8_t pattern) : MEOLightProgram
 
 uint32_t MEOColorPhasing::Do()
 {
-    switch (pattern_ % 14)
-    {
-    case 0:  //Wavey pastels
+    switch (pattern_ % 14) {
+    case 0:  // Wavey pastels
         phaseR_ = 0;
         phaseG_ = 2*PI/3;
         phaseB_ = 4*PI/3;
@@ -80,7 +81,7 @@ uint32_t MEOColorPhasing::Do()
         frequencyB_ = float(fStep_) / 100.0;
 		redOff_ = false; grnOff_ = false; bluOff_ = false;
         break;
-    case 6: //Red twinkle 
+    case 6: //Red twinkle
         phaseR_ = 0;
         phaseG_ = pStep_;
         phaseB_ = pStep_;
@@ -89,7 +90,7 @@ uint32_t MEOColorPhasing::Do()
         frequencyB_ = float(fStep_) / 100.0;
 		redOff_ = false; grnOff_ = false; bluOff_ = false;
         break;
-    case 7: //Green twinkle 
+    case 7: //Green twinkle
         phaseR_ = pStep_;
         phaseG_ = 0;
         phaseB_ = pStep_;
@@ -108,8 +109,7 @@ uint32_t MEOColorPhasing::Do()
 		redOff_ = false; grnOff_ = false; bluOff_ = false;
         break;
     case 9: //Evolving pastel wave
-        switch (turn_ % 6)
-        {
+        switch (turn_ % 6) {
         case 0:
 		case 1:
             phaseR_ = 0;
@@ -171,50 +171,39 @@ uint32_t MEOColorPhasing::Do()
 			;
     }
 
-    for (int i=0; i < light_count_; i++)
-    {
+    for (int i=0; i < light_count_; i++) {
         int red = sin(frequencyR_*i + phaseR_) * width_ + center_;
         int grn = sin(frequencyG_*i + phaseG_) * width_ + center_;
         int blu = sin(frequencyB_*i + phaseB_) * width_ + center_;
-		if (redOff_)
-		{
+		if (redOff_) {
 			red = 0;
 		}
-		if (grnOff_)
-		{
+		if (grnOff_) {
 			grn = 0;
 		}
-		if (bluOff_)
-		{
+        if (bluOff_) {
 			blu = 0;
 		}
         g35_.fill_color(i, 1, MEOG35::MAX_INTENSITY, COLOR(red, grn, blu));
     }
 
     //set direction: 1 2 .. 98 99 98 .. 2 1
-    if (fStep_ == 100)
-    {
+    if (fStep_ == 100) {
         fForward_ = false;
     }
-    if (fStep_ == -1)
-    {
+    if (fStep_ == -1) {
         fForward_ = true;
         turn_++;
     }
 
-    if (fForward_)
-    {
+    if (fForward_) {
         fStep_++;
-    }
-
-    if (!fForward_)
-    {
+    } else {
         fStep_--;
     }
 
     pStep_++;
-    if (pStep_ == 360)
-    {
+    if (pStep_ >= 360) {
         pStep_ = 0;
     }
 

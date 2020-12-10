@@ -18,16 +18,12 @@ MEOG35StringGroup::MEOG35StringGroup()
 void MEOG35StringGroup::AddString(MEOG35* g35)
 {
     if (string_count_ == MAX_STRINGS)
-    {
         return;
-    }
+
     uint16_t light_count = g35->get_light_count();
-    string_offsets_[string_count_] =
-        string_count_ == 0 ?
-        light_count :
-        string_offsets_[string_count_ - 1] + light_count;
+    string_offsets_[string_count_] = light_count;
     strings_[string_count_] = g35;
-    ++string_count_;
+    string_count_++;
     light_count_ += light_count;
 }
 
@@ -36,7 +32,7 @@ uint16_t MEOG35StringGroup::get_light_count()
     return light_count_;
 }
 
-void MEOG35StringGroup::set_color(uint8_t bulb, uint8_t intensity, color_t color)
+void MEOG35StringGroup::set_color(uint16_t bulb, uint8_t intensity, color_t color)
 {
     uint8_t string = 0;
     while (bulb >= string_offsets_[string] && string < string_count_)
@@ -64,7 +60,7 @@ void MEOG35StringGroup::broadcast_intensity(uint8_t intensity)
     }
 }
 
-uint8_t MEOG35StringGroup::get_broadcast_bulb()
+uint16_t MEOG35StringGroup::get_broadcast_bulb()
 {
     return 0;  // In this implementation, shouldn't ever be called.
 }
