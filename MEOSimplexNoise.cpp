@@ -1,6 +1,6 @@
 /*
   G35: An Arduino library for GE Color Effects G-35 holiday lights.
-  Copyright © 2011 The G35 Authors. Use, modification, and distribution are
+  Copyright (c) 2011 The G35 Authors. Use, modification, and distribution are
   subject to the BSD license as described in the accompanying LICENSE file.
 
   By Mike Tsao <http://github.com/sowbug>.
@@ -18,7 +18,10 @@ MEOSimplexNoise::MEOSimplexNoise(MEOG35& g35, uint8_t pattern) : MEOLightProgram
 {
 }
 
+#ifndef PI
 #define PI 3.14159265
+#endif
+
 #define onethird 0.333333333
 #define onesixth 0.166666667
 #define numSpacing 18

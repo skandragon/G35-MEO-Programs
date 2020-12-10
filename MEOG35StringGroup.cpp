@@ -1,6 +1,6 @@
 /*
   G35: An Arduino library for GE Color Effects G-35 holiday lights.
-  Copyright © 2011 The G35 Authors. Use, modification, and distribution are
+  Copyright (c) 2011 The G35 Authors. Use, modification, and distribution are
   subject to the BSD license as described in the accompanying LICENSE file.
 
   Original version by Paul Martis (http://www.digitalmisery.com). See
@@ -35,16 +35,12 @@ uint16_t MEOG35StringGroup::get_light_count()
 void MEOG35StringGroup::set_color(uint16_t bulb, uint8_t intensity, color_t color)
 {
     uint8_t string = 0;
-    while (bulb >= string_offsets_[string] && string < string_count_)
-    {
+    while (bulb >= string_offsets_[string] && string < string_count_) {
         bulb -= string_offsets_[string++];
     }
-    if (string < string_count_)
-    {
+    if (string < string_count_) {
         strings_[string]->set_color(bulb, intensity, color);
-    }
-    else
-    {
+    } else {
         // A program is misbehaving.
 #if 0
         Serial.println("out of bounds");

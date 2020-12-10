@@ -1,6 +1,6 @@
 /*
   G35: An Arduino library for GE Color Effects G-35 holiday lights.
-  Copyright © 2011 The G35 Authors. Use, modification, and distribution are
+  Copyright (c) 2011 The G35 Authors. Use, modification, and distribution are
   subject to the BSD license as described in the accompanying LICENSE file.
 
   By Mike Tsao <http://github.com/sowbug>.
@@ -17,7 +17,9 @@ MEOSineWave::MEOSineWave(MEOG35& g35, uint8_t pattern) : MEOLightProgram(g35, pa
 {
 }
 
+#ifndef PI
 #define PI 3.14159265
+#endif
 
 uint32_t MEOSineWave::Do()
 {
